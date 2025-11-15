@@ -244,7 +244,7 @@ impl EnvVars {
 
     /// Equivalent to the `--no-default-groups` command-line argument. If set, uv will
     /// not select the default dependency groups defined in `tool.uv.default-groups`.
-    #[attr_added_in("next release")]
+    #[attr_added_in("0.9.9")]
     pub const UV_NO_DEFAULT_GROUPS: &'static str = "UV_NO_DEFAULT_GROUPS";
 
     /// Equivalent to the `--no-binary` command-line argument. If set, uv will install
@@ -400,10 +400,11 @@ impl EnvVars {
 
     /// Managed Python installations information is hardcoded in the `uv` binary.
     ///
-    /// This variable can be set to a URL pointing to JSON to use as a list for Python installations.
-    /// This will allow for setting each property of the Python installation, mostly the url part for offline mirror.
+    /// This variable can be set to a local path or URL pointing to
+    /// a JSON list of Python installations to override the hardcoded list.
     ///
-    /// Note that currently, only local paths are supported.
+    /// This allows customizing the URLs for downloads or using slightly older or newer versions
+    /// of Python than the ones hardcoded into this build of `uv`.
     #[attr_added_in("0.6.13")]
     pub const UV_PYTHON_DOWNLOADS_JSON_URL: &'static str = "UV_PYTHON_DOWNLOADS_JSON_URL";
 
